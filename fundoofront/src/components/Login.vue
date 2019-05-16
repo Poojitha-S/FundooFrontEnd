@@ -1,7 +1,19 @@
 <template>
   <div class="centered-container">
     <md-content class="md-elevation-3">
-
+      <div class="title">
+        <div class="md-title">
+          <p style=" font-size: 200%;
+font: bolder;">
+            <span style='color: blue'>F</span>
+            <span style='color: red'>U</span>
+            <span style='color: yellow'>N</span>
+            <span style='color: blue'><Datag></Datag></span>
+            <span style='color: green'>O</span>
+            <span style='color: red'>O</span>
+          </p>
+        </div>
+      </div>
       <div class="form">
         <md-field>
           <label>E-mail</label>
@@ -16,40 +28,36 @@
 
       <div class="actions md-layout md-alignment-center-space-between">
         <a href="/forgetpassword">Forget password</a>
-        <md-button class="md-raised md-primary" @click="auth">Log in</md-button>
+        <md-button class="md-raised md-primary"  @click="login">Log in</md-button>
       </div>
 
       <div class="loading-overlay" v-if="loading">
         <md-progress-spinner md-mode="indeterminate" ></md-progress-spinner>
       </div>
-
     </md-content>
-    <!-- <div class="background" />-->
   </div> 
 </template>
 
-<script>
+<script scoped>
+import axios from 'axios';
 export default {
   name: "App",
   data() {
     return {
-      loading: false,
-      login: {
+      input: {
         email: "",
         password: ""
+        }
+     }
+   },
+   
+   methods: {
+      login() {
+        alert(this.login.email)
+        alert("successfully")
+        
       }
-    };
-  },
-  methods: {
-    auth() {
-      // your code to login user
-      // this is only for example of loading
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 5000);
     }
-  }
 };
 </script>
 
@@ -63,6 +71,7 @@ export default {
   .title {
     text-align: center;
     margin-bottom: 30px;
+    font-size: larger;
   }
   .actions {
     .md-button {
@@ -72,6 +81,9 @@ export default {
   .form {
     margin-bottom: 60px;
   }
+  // .title{
+  //   color: rgba(0,0,0,.87);
+  // }
     .md-content {
     z-index: 1;
     padding: 40px;
@@ -79,6 +91,8 @@ export default {
     max-width: 400px;
     position: relative;
   }
+ .md-title{ font-size: 103%;
+font: bolder;}
   .loading-overlay {
     z-index: 10;
     top: 0;

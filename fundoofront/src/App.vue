@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <Login />
-    <Sample />
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Login from './components/Login.vue'
-import Sample from './components/Sample.vue'
+// import Login from './components/Login.vue'
+// import Sample from './components/Sample.vue'
 
 export default {
   name: 'app',
   components: {
-    Login,
-    Sample
+    // 'Login':Login,
+    // 'Sample':Sample
   }
 }
 </script>
